@@ -1,2 +1,12 @@
 Project Creation:
 > npm create vite@latest
+> npm install
+
+1. Setup Eslint and Prettier
+>  npm i -D  prettier eslint-config-prettier eslint-plugin-prettier
+
+
+## Tailwind CSS
+> npm install -D tailwindcss @tailwindcss/vite
+    - Update vite.config.ts
+    - @import "tailwindcss"; (in index.css)
