@@ -2,7 +2,8 @@ Project Creation:
 > npm create vite@latest
 > npm install
 
-1. Setup Eslint and Prettier
+
+## Setup Eslint and Prettier
 >  npm i -D  prettier eslint-config-prettier eslint-plugin-prettier
 
 
@@ -10,3 +11,35 @@ Project Creation:
 > npm install -D tailwindcss @tailwindcss/vite
     - Update vite.config.ts
     - @import "tailwindcss"; (in index.css)
+
+
+## Absolute Imports
+   1. npm i -D 'vite-tsconfig-paths'
+   2. Update vite.config.ts
+      export default defineConfig({
+         plugins: [react(), tsconfigPaths(), ..],
+      })
+   3. Update tsconfig.app.json
+      {
+         "compilerOptions": {
+            ...
+            "baseUrl": ".",
+            "paths": {
+               "@/*": ["./src/*"]
+            },
+            ...
+         },
+         "include": ["src"]
+      }
+
+
+## Using SVG in React TS + Vite
+   1. npm i 'vite-plugin-svgr'
+   2. vite.config.ts
+      export default defineConfig({
+         plugins: [react(), svgr(),..],
+      })
+   3. Create file - src/types/svgr.d.ts, and add this line:
+      /// <reference types="vite-plugin-svgr/client" />
+
+
