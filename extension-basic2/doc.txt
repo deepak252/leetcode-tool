@@ -1,0 +1,12 @@
+
+How this works:
+Click extension icon → Popup opens (popup.html).
+
+Click "Click Me" button → Sends a message to background (background.js).
+
+Background receives message → Injects content.js into the active tab.
+
+Content script runs → Logs to the tab console & shows alert.
+
+
+
