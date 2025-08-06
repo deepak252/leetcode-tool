@@ -1,0 +1,27 @@
+1. Create manifest.json (In public/manifest.json:)
+
+2. Create Entry Points In vite.config.ts:
+
+3. Create HTML Entry Points
+    popup.html (root level):
+    options.html (root level):
+
+4. Create Popup React App 
+    src/popup/App.tsx
+    src/popup/index.tsx
+
+5. Create Options Page (Optional)
+    src/options/App.tsx
+    src/options/index.tsx
+
+6. Background Script
+    src/background/index.ts
+
+7. Content Script
+    src/content/index.ts
+
+8. Configure Vite for Multiple Entry Points
+    Edit vite.config.ts
+
+
+then > npm run build
