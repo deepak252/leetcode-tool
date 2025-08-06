@@ -11,6 +11,8 @@ async function sayHello() {
       alert("Hello from my extension");
     },
   });
+
+  chrome.runtime.sendMessage({ action: "runScript", tabId: tab.id });
 }
 
 // This runs in the extension popup (isolated from web pages)
