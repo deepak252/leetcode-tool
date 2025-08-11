@@ -30,11 +30,12 @@ export default defineManifest({
     },
   ],
   permissions: ['storage', 'tabs', 'scripting'],
-  host_permissions: [
-    // '<all_urls>'
-    'https://www.leetcode.com/*',
-    'https://*.leetcode.com/*',
-  ],
+  // host_permissions: [
+  //   // '<all_urls>'
+  //   'https://www.leetcode.com/*',
+  //   'https://*.leetcode.com/*',
+  // ],
+  host_permissions: ['http://localhost:5173/*'],
   web_accessible_resources: [
     {
       resources: ['injected/index.js'],
