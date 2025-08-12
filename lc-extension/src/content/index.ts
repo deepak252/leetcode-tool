@@ -4,9 +4,11 @@ import { fetchQuestionDetails } from '@/utils/leetcodeApi'
 console.log('Content script running!')
 
 function getSlugFromUrl(): string | null {
-  const match = window.location.pathname.match(/^\/problems\/([^\/]+)/)
+  const match = window.location.pathname.match(/^\/problems\/([^\\/]+)/)
   return match ? match[1] : null
 }
+
+const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 async function handleQuestionPage() {
   const slug = getSlugFromUrl()
@@ -15,6 +17,7 @@ async function handleQuestionPage() {
   console.log(`[Extension] Detected problem: ${slug}`)
 
   try {
+    await wait(4000)
     // Step 1: Fetch question details from LeetCode GraphQL
     const questionData = await fetchQuestionDetails(slug)
     console.log(`[Extension] GraphQL Data:`, questionData)
