@@ -21,10 +21,14 @@ export default defineManifest({
   },
   content_scripts: [
     {
-      matches: ['<all_urls>'],
+      matches: [
+        // '<all_urls>'
+        'https://www.leetcode.com/*',
+        'https://*.leetcode.com/*',
+      ],
       js: ['src/content/index.ts'],
     },
   ],
   permissions: ['storage', 'tabs', 'scripting'],
-  host_permissions: ['<all_urls>'],
+  host_permissions: ['http://localhost:5173/*'],
 })
