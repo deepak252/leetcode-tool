@@ -159,3 +159,44 @@ This ensures each part is compiled **independently**.
 [ Content can read/change the page DOM ]
 
 
+## **1. `chrome.runtime.sendMessage` / `chrome.tabs.sendMessage`**
+
+**Direction**:
+
+* **`chrome.runtime.sendMessage`** → goes to **background** (from popup or content).
+* **`chrome.tabs.sendMessage`** → goes to **content script in a specific tab** (from background).
+
+**Flow Examples**:
+
+```
+popup → chrome.runtime.sendMessage → background
+background → chrome.tabs.sendMessage(tabId) → content script
+content script → chrome.runtime.sendMessage → background
+```
+
+**Type**:
+
+* **One-off message** → request → response → connection closes.
+
+---
+
+## **2. `chrome.runtime.connect` / `chrome.tabs.connect`**
+
+**Direction**:
+
+* **`chrome.runtime.connect`** → opens **persistent port** between popup/content and background.
+* **`chrome.tabs.connect`** → opens **persistent port** from background to a specific tab’s content script.
+
+**Flow Examples**:
+
+```
+popup → chrome.runtime.connect → background ↔ continuous messages
+background → chrome.tabs.connect(tabId) → content script ↔ continuous messages
+```
+
+**Type**:
+
+* **Persistent channel** (stays open until manually disconnected or tab closes).
+* Good for **streaming data** or **bidirectional chat-like updates**.
+
+---
