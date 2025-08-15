@@ -1,11 +1,15 @@
 export default function Popup() {
   const handleClick = () => {
-    chrome.runtime.sendMessage(
-      { type: 'GREET', message: 'Hello from Popup' },
-      (response) => {
-        console.log('Background replied:', response)
-      }
-    )
+    // chrome.runtime.sendMessage(
+    //   { type: 'GREET', message: 'Hello from Popup' },
+    //   (response) => {
+    //     console.log('Background replied:', response)
+    //   }
+    // )
+    // localStorage.setItem('a', 'b')
+    // console.log(localStorage.getItem('a'))
+
+    chrome.runtime.sendMessage({ type: 'FETCH_DATA' })
   }
 
   return (

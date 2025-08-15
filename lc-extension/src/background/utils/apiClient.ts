@@ -12,13 +12,13 @@ const apiClient: AxiosInstance = axios.create({
 apiClient.interceptors.request.use(
   (config: any) => {
     // Example: attach token if stored
-    const token = localStorage.getItem('accessToken')
-    if (token) {
-      config.headers = {
-        ...config.headers,
-        Authorization: `Bearer ${token}`,
-      }
-    }
+    // const token = localStorage.getItem('accessToken')
+    // if (token) {
+    //   config.headers = {
+    //     ...config.headers,
+    //     Authorization: `Bearer ${token}`,
+    //   }
+    // }
     return config
   },
   (error) => Promise.reject(error)

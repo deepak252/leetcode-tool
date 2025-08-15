@@ -11,6 +11,7 @@ function* fetchDataWorker(): Generator {
     const response = yield call(apiClient.get, '/my-endpoint')
     yield put(fetchDataSuccess(response.data))
   } catch (error: any) {
+    console.log(error)
     yield put(fetchDataFailure(error.message || 'Failed to fetch data'))
   }
 }
